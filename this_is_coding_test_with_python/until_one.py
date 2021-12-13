@@ -1,7 +1,7 @@
 n, k = map(int, input().split())
 count = 0
 
-# 일반적인 방
+# 일반적인 방법
 '''
 while n != 1:
     if n % k == 0:

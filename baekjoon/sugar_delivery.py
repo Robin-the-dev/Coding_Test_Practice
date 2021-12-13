@@ -1,18 +1,20 @@
 n = int(input())
-count = 0
+
+result = 0
+
 
 while n >= 0:
     if n % 5 == 0:
-        count += n // 5
+        result += n // 5
         n = 0
         break
     n -= 3
-    count += 1
+    result += 1
 
 if n < 0:
     print(-1)
 else:
-    print(count)
+    print(result)
 
 # 백준 2839번 문제 (설탕 배달)
 # https://www.acmicpc.net/problem/2839
