@@ -11,6 +11,7 @@ def slice_watermelon(w):
 print(slice_watermelon(w))
 
 # Codeforces 4A 문제 (Watermelon)
+# https://codeforces.com/contest/4/problem/A
 
 # 정말 단순한 완전 탐색 (brute force) 문제이다.
 # 단순히 w에서 2에서 w사이에 있는 짝수를 빼줘서

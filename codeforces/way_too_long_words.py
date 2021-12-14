@@ -13,6 +13,7 @@ for i in range(n):
     print(str_list[i])
 
 # Codeforces 71A 문제 (Way Too Long Words)
+# https://codeforces.com/contest/71/problem/A
 
 # 단순한 구현 및 문자열 문제이다.
 # 10보다 긴 문자열을 문제의 요구사항대로 줄이는 문제이다.

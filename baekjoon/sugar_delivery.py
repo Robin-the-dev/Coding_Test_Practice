@@ -7,6 +7,7 @@ while n >= 0:
     if n % 5 == 0:
         result += n // 5
         n = 0
+        # 여기서 꼭 break를 걸어줘야한다. 아니면 break밑의 구문이 실행되면서 결과값에 1이 더해진다.
         break
     n -= 3
     result += 1
