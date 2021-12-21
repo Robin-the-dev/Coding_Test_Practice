@@ -13,6 +13,9 @@ def solve():
     dp_table[1] = max(k[0], k[1])
 
     for i in range(2, n):
+        # 아래의 if else 부분을 단순히 max() 함수로 하면 더 간결하게 코드를 쓸 수 있다.
+        # 점화식이 a(i) = max(a(i-1), a(i-2) + k(i)) 이기 때문에 max를 쓰면 된다는 것을
+        # 염두에 두자!
         if dp_table[i - 2] + k[i] > dp_table[i - 1]:
             dp_table[i] = dp_table[i - 2] + k[i]
         else:
