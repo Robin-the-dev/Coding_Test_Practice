@@ -4,7 +4,7 @@ input = sys.stdin.readline
 def solve():
     n, m = map(int, input().rstrip().split())
     coins = [int(input().rstrip()) for _ in range(n)]
-    
+
     dp_table = [0] * (m + 1)
     minimum = 10000
 
@@ -36,7 +36,7 @@ def solve2():
     coins = [int(input().rstrip()) for _ in range(n)]
 
     dp_table = [10001] * (m + 1)
-    
+
     # 아래의 코드를 넣어줘야지 반복문이 제대로 작동한다.
     # 왜냐하면 0원의 경우, 화폐를 사용하지 않았을때 만들 수 있으므로 0을 넣어준다.
     dp_table[0] = 0
