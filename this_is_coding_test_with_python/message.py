@@ -43,8 +43,49 @@ def solve():
 
     print(count, time)
 
+def revise():
+    n, m, c = map(int, input().rstrip().split())
+    graph = [[] for _ in range(n + 1)]
+
+    for _ in range(m):
+        x, y, z = map(int, input().rstrip().split())
+        graph[x].append((y, z))
+
+    pq = []
+    distance = [INF] * (n + 1)
+    distance[c] = 0
+    heapq.heappush(pq, (0, c))
+
+    while pq:
+        cost, start = heapq.heappop(pq)
+
+        if distance[start] < cost:
+            continue
+
+        for i in graph[start]:
+            dest = i[0]
+            # to_cost = i[1]이 되면 안되고 현재의 노드를 거쳐서 갈때의 cost를 알아야 되기 때문에
+            # to_cost = i[1] + cost가 되어야 한다.
+            to_cost = i[1] + cost
+
+            if distance[dest] > to_cost:
+                distance[dest] = to_cost
+                heapq.heappush(pq, (to_cost, dest))
+
+    count = 0
+    time = 0
+
+    for i in range(1, n + 1):
+        if distance[i] < INF:
+            count += 1
+            time = max(time, distance[i])
+
+    # 시작 노드는 제외되어야하므로 -1을 해준다.
+    print(count - 1, time)
+
 if __name__ == '__main__':
     solve()
+    revise()
 
 # 이것이 코딩테스트다 with Python 실전문제 9-5 문제 (전보)
 # P. 262
