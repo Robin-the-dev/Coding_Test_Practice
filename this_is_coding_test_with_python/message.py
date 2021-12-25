@@ -40,7 +40,49 @@ def solve():
             continue
         count += 1
         time = max(distance[i], time)
+ 
+    print(distance)
+    print(count, time)
 
+# visited 리스트를 만들어서 활용한 다익스트라 알고리즘
+def solve2():
+    n, m, c = map(int, input().rstrip().split())
+
+    graph = [[] for _ in range(n + 1)]
+
+    for _ in range(m):
+        x, y, z = map(int, input().rstrip().split())
+        graph[x].append((z, y))
+
+    distance = [INF] * (n + 1)
+    visited = [False] * (n + 1)
+
+    pq = []
+
+    distance[c] = 0
+    heapq.heappush(pq, (0, c))
+
+    while pq:
+        cost, start = heapq.heappop(pq)
+
+        for i in graph[start]:
+            new_cost = cost + i[0]
+
+            if new_cost < distance[i[1]] and not visited[i[1]]:
+                distance[i[1]] = new_cost
+                heapq.heappush(pq, (new_cost, i[1]))
+        visited[start] = True
+    
+    count = 0
+    time = 0
+
+    for i in range(1, n + 1):
+        if distance[i] == 0 or distance[i] == INF:
+            continue
+        count += 1
+        time = max(distance[i], time)
+
+    print(distance)
     print(count, time)
 
 def revise():
@@ -85,7 +127,7 @@ def revise():
 
 if __name__ == '__main__':
     solve()
-    revise()
+    solve2()
 
 # 이것이 코딩테스트다 with Python 실전문제 9-5 문제 (전보)
 # P. 262
